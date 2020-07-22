@@ -5,29 +5,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="employee")
-public class Employee {
-    public Employee(){};
-    public Employee(int emp_id, String name, int age, String address, int salary) {
+@Table(name = "user")
+public class User {
+
+    public User() {}
+
+    public User(String nic, String name, int age, String address, int usr_id) {
         super();
-        this.emp_id = emp_id;
+        this.usr_id = usr_id;
         this.name = name;
         this.age = age;
         this.address = address;
-        this.salary = salary;
+        this.nic = nic;
     }
+
     @Override
     public String toString() {
-        return "Employee [emp_id=" + emp_id + ", name=" + name + ", age=" + age + ", address=" + address + ", salary="
-                + salary + "]";
+        return "User [usr_id=" + usr_id + ", name=" + name + ", age=" + age + ", address=" + address + ", nic="
+                + nic + "]";
     }
-    public int getEmp_id() {
-        return emp_id;
+
+    public int getUsr_id() {
+        return usr_id;
     }
-    public void setEmp_id(int emp_id) {
-        this.emp_id = emp_id;
+    public void setUsr_id(int emp_id) {
+        this.usr_id = emp_id;
     }
     public String getName() {
         return name;
@@ -47,18 +50,19 @@ public class Employee {
     public void setAddress(String address) {
         this.address = address;
     }
-    public int getSalary() {
-        return salary;
+    public String getNic() {
+        return nic;
     }
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
+
     @Id
+    private String nic;
     @GeneratedValue
-    private int emp_id;
+    private int usr_id;
     private String name;
     private int age;
     private String address;
-    private int salary;
 
 }

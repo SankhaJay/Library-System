@@ -18,40 +18,40 @@ import middleware.library.LibrarySystem.service.EmployeeService;
 @RestController()
 @RequestMapping("/emp")
 public class EmployeeController {
-	
-	@Autowired
-	private EmployeeService employeeServ;
-	
-	
-	@PostMapping("/addEmployee")
-	public Employee addEmployee(@RequestBody Employee employee) {
-		return employeeServ.addEmployee(employee);
-	}
-	
-	@GetMapping("/employees")
-	public List<Employee> getEmployees(){
-		return employeeServ.getEmployees();
-	}
-	
-	@GetMapping("/getEmployeeById/{id}")
-	public Employee getEmployeesById(@PathVariable int id){
-		return employeeServ.getEmployeesById(id);
-	}
-	
-	@GetMapping("/getEmployeeByName/{name}")
-	public Employee getEmployeesByName(@PathVariable String name){
-		return employeeServ.getEmployeesByName(name);
-	}
-	
-	@PutMapping("/update")
-	public Employee updateEmployee(@RequestBody Employee employee){
-		return employeeServ.updateEmployee(employee);
-	}
-		
-	@DeleteMapping("/delete/{id}")
-	public String deleteEmployee(@PathVariable int id) {
-		return employeeServ.deleteEmployee(id);
-	}
-	
+
+    @Autowired
+    private EmployeeService employeeServ;
+
+
+    @PostMapping("/addEmployee")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeServ.addEmployee(employee);
+    }
+
+    @GetMapping("/employees")
+    public List<Employee> getEmployees(){
+        return employeeServ.getEmployees();
+    }
+
+    @GetMapping("/getEmployeeById/{id}")
+    public Employee getEmployeesById(@PathVariable int id){
+        return employeeServ.getEmployeesById(id);
+    }
+
+    @GetMapping("/getEmployeeByName/{name}")
+    public Employee getEmployeesByName(@PathVariable String name){
+        return employeeServ.getEmployeesByName(name);
+    }
+
+    @PutMapping("/update")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        return employeeServ.updateEmployee(employee);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+        return employeeServ.deleteEmployee(id);
+    }
+
 
 }
