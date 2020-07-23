@@ -30,7 +30,7 @@ public class EmployeeController {
 	@RequestMapping("/employees")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
-        String URL = "http://localhost:8080/emp/employees";
+        String URL = "http://localhost:3000/emp/employees";
 		Object[] employees = restTemplate.getForObject(URL, Object[].class);
 		
 //		Arrays.asList(employees);
