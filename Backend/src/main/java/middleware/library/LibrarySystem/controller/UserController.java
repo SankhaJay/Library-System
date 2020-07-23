@@ -19,7 +19,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @GetMapping("/getAllUsers")
+    @GetMapping("/users")
     public List<User> getAllUsers() throws Exception{
         return userService.getAllUsers();
     }
