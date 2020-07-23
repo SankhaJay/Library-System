@@ -1,5 +1,6 @@
 package middleware.library.LibrarySystem.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -58,6 +59,7 @@ public class User {
     }
 
     @Id
+    @Column(length=11)
     private String nic;
     @GeneratedValue
     private int usr_id;
