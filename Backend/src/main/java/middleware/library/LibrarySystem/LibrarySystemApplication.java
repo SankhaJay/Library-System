@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 public class LibrarySystemApplication {
 	
-	    @RequestMapping
+	    @RequestMapping("/")
 	    @ResponseBody
 	    String home() {
 	      return "Library-System-Spring Boot-Backend";
