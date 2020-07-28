@@ -16,6 +16,7 @@ public class UserController {
 
     @PostMapping("/addUser")
     public User addUser(@RequestBody User user) throws Exception{
+        System.out.println(user);
         return userService.addUser(user);
     }
 

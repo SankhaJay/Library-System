@@ -1,10 +1,14 @@
 package middleware.library.LibrarySystem.entity;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
 @Table(name = "user")
@@ -12,18 +16,17 @@ public class User {
 
     public User() {}
 
-    public User(String nic, String name, int age, String address, int usr_id) {
+    public User(String nic, String name, Date dob, String address) {
         super();
-        this.usr_id = usr_id;
         this.name = name;
-        this.age = age;
+        this.dob = dob;
         this.address = address;
         this.nic = nic;
     }
 
     @Override
     public String toString() {
-        return "User [usr_id=" + usr_id + ", name=" + name + ", age=" + age + ", address=" + address + ", nic="
+        return "User [usr_id=" + usr_id + ", name=" + name + ", age=" + dob + ", address=" + address + ", nic="
                 + nic + "]";
     }
 
@@ -39,11 +42,11 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    public int getAge() {
-        return age;
+    public Date getDob() {
+        return dob;
     }
-    public void setAge(int age) {
-        this.age = age;
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
     public String getAddress() {
         return address;
@@ -59,12 +62,13 @@ public class User {
     }
 
     @Id
-    @Column(length=11)
-    private String nic;
     @GeneratedValue
     private int usr_id;
+    @Column(length=11)
+    private String nic;
     private String name;
-    private int age;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dob;
     private String address;
 
 }

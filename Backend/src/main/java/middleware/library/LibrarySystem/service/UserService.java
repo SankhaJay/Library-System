@@ -15,6 +15,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User addUser(User user) throws Exception {
+        System.out.println(user);
         return userRepository.save(user);
     }
 
@@ -39,7 +40,7 @@ public class UserService {
         User user1 = userRepository.findById(user.getNic()).orElse(null);
         user1.setName(user.getName());
         user1.setAddress(user.getAddress());
-        user1.setAge(user.getAge());
+        user1.setDob(user.getDob());
         return userRepository.save(user1);
     }
 
