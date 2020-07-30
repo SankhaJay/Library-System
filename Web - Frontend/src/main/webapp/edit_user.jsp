@@ -1,8 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">>
+<html>
   <head>
     <title> Employee Page </title>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/user.css">
   </head>
@@ -38,9 +36,10 @@
     </div>
   </nav>
 
-  <div class="row marginStyle">
+  <div class="row" style="margin: 20px 20px 20px 20px;">
      <div class="col-md-12">
-        <form action="create_user" method="post">
+        <form action="http://localhost:9090/edit_user_form" method="post">
+           <input type="text" class="form-control" name="usr_id" value="${user.usr_id}" style="display:none">
            <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" name="name" placeholder="Enter Name" value="${user.name}">
@@ -52,7 +51,7 @@
            </div>
            <div class="form-group">
               <label for="nic">NIC</label>
-              <input type="text" class="form-control" name="nic" value="${user.nic}" placeholder="Enter NIC">
+              <input type="text" disabled class="form-control" name="nic" value="${user.nic}" placeholder="Enter NIC">
            </div>
            <div class="form-group">
               <label for="address">Address</label>

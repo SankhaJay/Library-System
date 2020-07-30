@@ -25,24 +25,25 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/getUserByNic/{nic}")
-    public User getUserByNIC(@PathVariable String nic) throws Exception{
-        return userService.getUserByNIC(nic);
+    @GetMapping("/getUserById/{id}")
+    public User getUserById(@PathVariable String id) throws Exception{
+        return userService.getUserById(Integer.parseInt(id));
     }
 
     @GetMapping("/getUserByName/{name}")
-    public User getUserByName(@PathVariable String name) throws Exception{
+    public List<User> getUserByName(@PathVariable String name) throws Exception{
         return userService.getUserByName(name);
     }
 
     @PutMapping("/update")
     public User updateUser(@RequestBody User user) throws Exception{
+        System.out.println("Updating " + user);
         return userService.updateUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteUser(@PathVariable String nic) throws Exception{
-        return userService.deleteUser(nic);
+    public String deleteUser(@PathVariable int id) throws Exception{
+        return userService.deleteUser(id);
     }
 
 }
