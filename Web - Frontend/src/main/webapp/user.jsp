@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
     <title> Employee Page </title>
@@ -61,30 +62,21 @@
       <tr>
         <th scope="col"> ID </th>
         <th scope="col"> Name </th>
-        <th scope="col"> Age </th>
+        <th scope="col"> DOB </th>
         <th scope="col"> NIC </th>
         <th scope="col"> Address </th>
       </tr>
     </thead>
     <tbody>
+      <c:forEach items="${users}" var="user">
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">${user.usr_id}</th>
+        <td>${user.name}</td>
+        <td>${user.dob}</td>
+        <td>${user.nic}</td>
+        <td>${user.address}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      </c:forEach>
     </tbody>
   </table>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
