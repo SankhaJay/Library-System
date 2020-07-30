@@ -23,23 +23,25 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserByNIC(String nic) throws Exception {
-        return userRepository.findById(nic).orElse(null);
+    public User getUserById(int id) throws Exception {
+        return userRepository.findById(id).orElse(null);
     }
 
-    public User getUserByName(String name) throws Exception {
+    public List<User> getUserByName(String name) throws Exception {
         return userRepository.findByName(name);
     }
 
-    public String deleteUser(String nic) throws Exception {
-        userRepository.deleteById(nic);
-        return "User removed with NIC : " + nic;
+    public String deleteUser(int id) throws Exception {
+        userRepository.deleteById(id);
+        return "User removed with ID : " + id;
     }
 
     public User updateUser(User user) throws Exception {
-        User user1 = userRepository.findById(user.getNic()).orElse(null);
+        System.out.println(user.getUsr_id());
+        User user1 = userRepository.findById(user.getUsr_id()).orElse(null);
         user1.setName(user.getName());
         user1.setAddress(user.getAddress());
+        user1.setEmail(user.getEmail());
         user1.setDob(user.getDob());
         return userRepository.save(user1);
     }

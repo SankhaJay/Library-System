@@ -11,6 +11,7 @@ public class User {
     private String address;
     private String nic;
     private String dob;
+    private int usr_id;
 
     public void setName(String name) {
         this.name = name;
@@ -32,6 +33,10 @@ public class User {
         this.dob = dob;
     }
 
+    public void setUsr_id(int id) {
+        this.usr_id = id;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -49,5 +54,7 @@ public class User {
     }
 
     public String getDob() { return this.dob; }
+
+    public int getUsr_id() { return this.usr_id; }
 
 }

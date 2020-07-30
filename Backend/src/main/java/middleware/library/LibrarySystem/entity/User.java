@@ -16,12 +16,14 @@ public class User {
 
     public User() {}
 
-    public User(String nic, String name, Date dob, String address) {
+    public User(int id,String nic, String name, Date dob, String address, String email) {
         super();
+        this.usr_id = id;
         this.name = name;
         this.dob = dob;
         this.address = address;
         this.nic = nic;
+        this.email = email;
     }
 
     @Override
@@ -51,6 +53,12 @@ public class User {
     public String getAddress() {
         return address;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return email;
+    }
     public void setAddress(String address) {
         this.address = address;
     }
@@ -67,6 +75,7 @@ public class User {
     @Column(length=11)
     private String nic;
     private String name;
+    private String email;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
     private String address;
