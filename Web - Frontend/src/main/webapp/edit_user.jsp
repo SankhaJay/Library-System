@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">>
   <head>
     <title> Employee Page </title>
     <meta charset="UTF-8">
@@ -43,24 +43,24 @@
         <form action="create_user" method="post">
            <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Enter Name">
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" value="${user.name}">
            </div>
            <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" value="${user.email}" name="email" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
            </div>
            <div class="form-group">
               <label for="nic">NIC</label>
-              <input type="text" class="form-control" name="nic" placeholder="Enter NIC">
+              <input type="text" class="form-control" name="nic" value="${user.nic}" placeholder="Enter NIC">
            </div>
            <div class="form-group">
               <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" placeholder="Enter Address">
+              <input type="text" class="form-control" name="address" value="${user.address}" placeholder="Enter Address">
            </div>
            <div class="form-group">
                <label for="dob">Date of Birth</label>
-               <input type="date" class="form-control" name="dob" placeholder="Enter DOB">
+               <input type="date" class="form-control" name="dob" value="${user.dob}" placeholder="Enter DOB">
            </div>
            <button type="submit" class="btn btn-primary">Submit</button>
         </form>

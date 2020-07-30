@@ -1,5 +1,8 @@
 package middleware.frontend.LibraryFrontend.entity;
 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Date;
 
 public class User {
@@ -7,14 +10,14 @@ public class User {
     private String email;
     private String address;
     private String nic;
-    private Date dob;
+    private String dob;
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setNIC(String name) {
-        this.nic = name;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public void setAddress(String name) {
@@ -25,7 +28,7 @@ public class User {
         this.email = name;
     }
 
-    public void setDOB(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -44,5 +47,7 @@ public class User {
     public String getEmail() {
         return this.email;
     }
+
+    public String getDob() { return this.dob; }
 
 }

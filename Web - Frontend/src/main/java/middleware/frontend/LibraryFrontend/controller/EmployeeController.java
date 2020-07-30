@@ -38,5 +38,4 @@ public class EmployeeController {
         mv.setViewName("/home.jsp");
         return mv;
     }
-
 }
