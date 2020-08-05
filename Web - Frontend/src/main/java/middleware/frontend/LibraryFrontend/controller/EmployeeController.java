@@ -26,16 +26,27 @@ public class EmployeeController {
 //		
 //		return Arrays.asList(employees);
 //	}
-	
+//	
 	@RequestMapping("/employees")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
         String URL = "http://localhost:3000/emp/employees";
 		Object[] employees = restTemplate.getForObject(URL, Object[].class);
 		
-//		Arrays.asList(employees);
+		Arrays.asList(employees);
         mv.addObject("employees", employees);
-        mv.setViewName("/home.jsp");
+        mv.setViewName("/employee.jsp");
         return mv;
     }
+	
+	
+//	@RequestMapping("/employee")
+//    public ModelAndView employeeHome() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        String URL = "http://localhost:3000/emp/employees";
+//        Object[] users = restTemplate.getForObject(URL, Object[].class);
+//        modelAndView.addObject("users", users);
+//        modelAndView.setViewName("/user.jsp");
+//        return modelAndView;
+//    }
 }
