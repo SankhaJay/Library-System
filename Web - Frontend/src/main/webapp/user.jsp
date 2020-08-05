@@ -16,22 +16,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/home"> Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Employee </a>
+          <a class="nav-link" href="/employee"> Employee </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> User </a>
+          <a class="nav-link" href="/user"> User </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Books </a>
+          <a class="nav-link" href="/book"> Books </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Admin </a>
+          <a class="nav-link" href="/admin"> Admin </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Log Out </a>
+          <a class="nav-link" href="/"> Log Out </a>
         </li>
       </ul>
     </div>
