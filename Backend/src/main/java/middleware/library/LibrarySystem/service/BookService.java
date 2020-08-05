@@ -30,8 +30,8 @@ public class BookService {
 		return repository.findById(isbn).orElse(null);
 	}
 	
-	public Book getBooksByName(String name) {
-		return repository.findByName(name);
+	public Book getBooksByTitle(String title) {
+		return  repository.getByTitle(title);
 	}
 	
 	public String deleteBook(int isbn) {

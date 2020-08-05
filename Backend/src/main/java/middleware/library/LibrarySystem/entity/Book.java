@@ -5,29 +5,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
+
 @Entity
 @Table(name="book")
 public class Book {
 	
-	@Id
-	@GeneratedValue
-	private int ISBN;
-	private String title;
-	private String publisher;
-	private int numberOfBooks;
-	private int price;
+	public Book() {};
 	
+	public Book(int iSBN, String title, String publisher, int numberOfBooks, int price) {
+        super();
+        this.ISBN=iSBN;
+        this.title=title;
+        this.publisher=publisher;
+        this.numberOfBooks=numberOfBooks;
+        this.price = price;
+        
+    }
+	 @Override
+	    public String toString() {
+	        return "Book [ISBN=" + ISBN + ", title=" + title + ", publisher=" + publisher + ", numberOfBooks=" + numberOfBooks + ", price="
+	                + price + "]";
+	    }
+	 
 	public int getISBN() {
 		return ISBN;
 	}
-	
+	public void setISBN(int iSBN) {
+		this.ISBN = iSBN;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -52,5 +59,16 @@ public class Book {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	@Id
+	@GeneratedValue
+	private int ISBN;
+	private String title;
+	private String publisher;
+	private int numberOfBooks;
+	private int price;
+	
+	
+	
 	
 }
