@@ -2,9 +2,9 @@ package middleware.frontend.LibraryFrontend.entity;
 
 public class Employee {
 	
-	public Employee(int emp_id, String name, int age, String address, int salary) {
+	public Employee(String name, int age, String address, int salary) {
 		super();
-		this.emp_id = emp_id;
+//		this.emp_id = emp_id;
 		this.name = name;
 		this.age = age;
 		this.address = address;
@@ -12,7 +12,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [emp_id=" + emp_id + ", name=" + name + ", age=" + age + ", address=" + address + ", salary="
+		return "Employee [name=" + name + ", age=" + age + ", address=" + address + ", salary="
 				+ salary + "]";
 	}
 	private int emp_id;
@@ -20,6 +20,13 @@ public class Employee {
 	private int age;
 	private String address;
 	private int salary;
+//	private String nic;
+//	public String getNic() {
+//		return nic;
+//	}
+//	public void setNic(String nic) {
+//		this.nic = nic;
+//	}
 	public int getEmp_id() {
 		return emp_id;
 	}

@@ -4,13 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import middleware.frontend.LibraryFrontend.entity.Employee;
+import middleware.frontend.LibraryFrontend.entity.User;
 
 @RestController
 public class EmployeeController {
@@ -27,7 +32,7 @@ public class EmployeeController {
 //		return Arrays.asList(employees);
 //	}
 //	
-	@RequestMapping("/employees")
+	@RequestMapping("/employee")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
         String URL = "http://localhost:3000/emp/employees";
@@ -39,14 +44,26 @@ public class EmployeeController {
         return mv;
     }
 	
+	@RequestMapping("/add-employee")
+    public ModelAndView userAdd() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/employee_add.jsp");
+        return modelAndView;
+    }
 	
-//	@RequestMapping("/employee")
-//    public ModelAndView employeeHome() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        String URL = "http://localhost:3000/emp/employees";
-//        Object[] users = restTemplate.getForObject(URL, Object[].class);
-//        modelAndView.addObject("users", users);
-//        modelAndView.setViewName("/user.jsp");
+	@PostMapping("/create_employee")
+    public ModelAndView createUser(Employee employee) {
+		 System.out.println("fuck");
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println("here");
+        String URL = "http://localhost:3000/emp/addEmployee";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<Object> request = new HttpEntity<Object>(employee, headers);
+   
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        restTemplate.postForObject(URL, request, Object.class);
+//        modelAndView.setViewName("/employee.jsp");
 //        return modelAndView;
-//    }
+        return home();
+    }
 }
