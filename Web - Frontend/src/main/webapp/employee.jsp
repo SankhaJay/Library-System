@@ -19,7 +19,7 @@
           <a class="nav-link" href="/"> Home </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/employees"> Employee <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/employee"> Employee <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user"> User </a>
@@ -53,7 +53,7 @@
          </form>
      </div>
      <div class="col-md-4">
-        <a href="" class="btn btn-info"> ADD NEW EMPLOYEE </a>
+        <a href="/add-employee" class="btn btn-info"> ADD NEW EMPLOYEE </a>
      </div>
   </div>
 

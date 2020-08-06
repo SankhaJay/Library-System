@@ -7,4 +7,5 @@ import middleware.library.LibrarySystem.entity.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
     Employee findByName(String name);
+//    Employee findByNic(String nic);
 }
