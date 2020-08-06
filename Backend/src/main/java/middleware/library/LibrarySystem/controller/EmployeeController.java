@@ -25,6 +25,7 @@ public class EmployeeController {
 
     @PostMapping("/addEmployee")
     public Employee addEmployee(@RequestBody Employee employee) {
+    	System.out.println("here");
         return employeeServ.addEmployee(employee);
     }
 

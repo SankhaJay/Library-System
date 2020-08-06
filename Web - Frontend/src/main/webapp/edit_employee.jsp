@@ -7,7 +7,7 @@
   <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> Library </a>
+    <a class="navbar-brand" href="#"> Library - System </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,28 +38,24 @@
 
   <div class="row" style="margin: 20px 20px 20px 20px;">
      <div class="col-md-12">
-        <form action="http://localhost:9090/edit_user_form" method="post">
-           <input type="text" class="form-control" name="usr_id" value="${user.usr_id}" style="display:none">
+        <form action="/edit_employee_form" method="post">
+           <input type="text" class="form-control" name="emp_id" value="${employee.emp_id}" style="display:none">
            <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Enter Name" value="${user.name}">
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" value="${employee.name}">
            </div>
            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" value="${user.email}" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-           </div>
+            <label for="address">Address</label>
+            <input type="text" class="form-control" name="address" value="${employee.address}" placeholder="Enter Address">
+         </div>
            <div class="form-group">
-              <label for="nic">NIC</label>
-              <input type="text" disabled class="form-control" name="nic" value="${user.nic}" placeholder="Enter NIC">
+              <label for="salary">Salary</label>
+              <input type="text" class="form-control" name="salary" value="${employee.salary}" placeholder="Enter NIC">
            </div>
+           
            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" value="${user.address}" placeholder="Enter Address">
-           </div>
-           <div class="form-group">
-               <label for="dob">Date of Birth</label>
-               <input type="date" class="form-control" name="dob" value="${user.dob}" placeholder="Enter DOB">
+               <label for="age">Age</label>
+               <input type="text" class="form-control" name="age" value="${employee.age}" placeholder="Enter age">
            </div>
            <button type="submit" class="btn btn-primary">Submit</button>
         </form>

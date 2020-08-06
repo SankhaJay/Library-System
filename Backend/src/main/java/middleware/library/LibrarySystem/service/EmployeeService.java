@@ -25,7 +25,7 @@ public class EmployeeService {
 
     public Employee getEmployeesById(int id){
         return employeeRepo.findById(id).orElse(null);
-    }
+    }  
 
     public Employee getEmployeesByName(String name){
         return employeeRepo.findByName(name);
@@ -41,6 +41,7 @@ public class EmployeeService {
         old_employee.setName(employee.getName());
         old_employee.setAge(employee.getAge());
         old_employee.setAddress(employee.getAddress());
+        old_employee.setSalary(employee.getSalary());
         return employeeRepo.save(old_employee);
     }
 
