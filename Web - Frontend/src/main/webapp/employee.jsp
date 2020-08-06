@@ -79,7 +79,7 @@
         <td>${employee.address}</td>
         <td>${employee.salary}</td>
         <td><a href="/edit_employee/${employee.emp_id}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
-        <td><a href="javascript:void(0)" onclick="" style="color:red;text-decoration:none">Delete</button></td>
+        <td><a href="/deleteEmployee/${employee.emp_id}" style="color:red;text-decoration:none">Delete</button></td>
       </tr>
       </c:forEach>
     </tbody>
