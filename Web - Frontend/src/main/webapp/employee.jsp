@@ -39,11 +39,11 @@
 
   <div class="row marginStyle">
      <div class="col-md-5">
-         <form action="/filter_user" method="post">
+         <form action="/filter_employee" method="post">
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search User Here" name="name">
+                        <input type="text" class="form-control" placeholder="Search Employee Here" name="name">
                     </div>
                 </div>
                 <div class="col-md-6">

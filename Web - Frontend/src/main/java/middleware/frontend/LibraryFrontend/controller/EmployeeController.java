@@ -115,4 +115,15 @@ public class EmployeeController {
             return redirectView;
         }
     }
+	
+	@PostMapping("/filter_employee")
+    public ModelAndView filterUser(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println(name);
+        String URL = "http://localhost:3000/emp/getEmployeeByName/" + name;
+        Object[] employees = restTemplate.getForObject(URL, Object[].class);
+        modelAndView.addObject("employees", employees);
+        modelAndView.setViewName("/employee.jsp");
+        return modelAndView;
+    }
 }

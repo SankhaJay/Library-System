@@ -40,7 +40,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getEmployeeByName/{name}")
-    public Employee getEmployeesByName(@PathVariable String name){
+    public List<Employee> getEmployeesByName(@PathVariable String name){
         return employeeServ.getEmployeesByName(name);
     }
 
