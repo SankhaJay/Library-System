@@ -27,7 +27,7 @@ public class EmployeeService {
         return employeeRepo.findById(id).orElse(null);
     }  
 
-    public Employee getEmployeesByName(String name){
+    public List<Employee> getEmployeesByName(String name){
         return employeeRepo.findByName(name);
     }
 
