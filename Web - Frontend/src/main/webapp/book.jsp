@@ -39,7 +39,7 @@
 
   <div class="row marginStyle">
      <div class="col-md-5">
-         <form action="/filter_user" method="post">
+         <form action="/filter_book" method="post">
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -77,8 +77,8 @@
         <td>${book.publisher}</td>
         <td>${book.numberOfBooks}</td>
         <td>${book.price}</td>
-        <td><a href="#" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
-        <td><a href="#" style="color:red;text-decoration:none">Delete</button></td>
+        <td><a href="/edit_book/${book.isbn}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
+        <td><a href="javascript:void(0)" onclick="deleteUser('${book.isbn}')" style="color:red;text-decoration:none">Delete</button></td>
       </tr>
       </c:forEach>
     </tbody>
