@@ -1,5 +1,6 @@
 package middleware.frontend.LibraryFrontend.controller;
 
+import middleware.frontend.LibraryFrontend.entity.Book;
 import middleware.frontend.LibraryFrontend.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -73,13 +74,13 @@ public class UserController {
     }
 
     @PostMapping("/filter_user")
-    public ModelAndView filterUser(User user) {
+    public ModelAndView filterUser(Book book) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println(user.getName());
-        String URL = "http://localhost:3000/user/getUserByName/" + user.getName();
-        Object[] users = restTemplate.getForObject(URL, Object[].class);
-        modelAndView.addObject("users", users);
-        modelAndView.setViewName("/user.jsp");
+        System.out.println(book.getTitle());
+        String URL = "http://localhost:3000/user/getUserByName/" + book.getTitle();
+        Object[] books = restTemplate.getForObject(URL, Object[].class);
+        modelAndView.addObject("books", books);
+        modelAndView.setViewName("/book.jsp");
         return modelAndView;
     }
 
