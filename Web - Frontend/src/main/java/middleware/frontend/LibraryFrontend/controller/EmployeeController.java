@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -95,5 +96,34 @@ public class EmployeeController {
 //        redirectView.setUrl("http://localhost:9090/user");
 //        return redirectView;
         return home();
+    }
+	
+	@RequestMapping("/deleteEmployee/{id}")
+    public RedirectView deleteEmployee(@PathVariable String id) {
+        System.out.println(id);
+        ModelAndView modelAndView = new ModelAndView();
+        String URL = "http://localhost:3000/emp/delete/" + id;
+        try {
+            restTemplate.delete(URL);
+        } catch (Exception exception) {
+            exception.getMessage();
+        } finally {
+            String emp_URL = "http://localhost:3000/emp/employees";
+            Object[] users = restTemplate.getForObject(emp_URL, Object[].class);
+            RedirectView redirectView = new RedirectView();
+            redirectView.setUrl("http://localhost:9090/employee");
+            return redirectView;
+        }
+    }
+	
+	@PostMapping("/filter_employee")
+    public ModelAndView filterUser(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println(name);
+        String URL = "http://localhost:3000/emp/getEmployeeByName/" + name;
+        Object[] employees = restTemplate.getForObject(URL, Object[].class);
+        modelAndView.addObject("employees", employees);
+        modelAndView.setViewName("/employee.jsp");
+        return modelAndView;
     }
 }

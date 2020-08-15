@@ -39,11 +39,11 @@
 
   <div class="row marginStyle">
      <div class="col-md-5">
-         <form action="/filter_user" method="post">
+         <form action="/filter_employee" method="post">
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search User Here" name="name">
+                        <input type="text" class="form-control" placeholder="Search Employee Here" name="name">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -79,7 +79,7 @@
         <td>${employee.address}</td>
         <td>${employee.salary}</td>
         <td><a href="/edit_employee/${employee.emp_id}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
-        <td><a href="javascript:void(0)" onclick="" style="color:red;text-decoration:none">Delete</button></td>
+        <td><a href="/deleteEmployee/${employee.emp_id}" style="color:red;text-decoration:none">Delete</button></td>
       </tr>
       </c:forEach>
     </tbody>
