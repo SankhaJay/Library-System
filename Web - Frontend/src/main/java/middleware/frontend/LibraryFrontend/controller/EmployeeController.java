@@ -49,14 +49,14 @@ public class EmployeeController {
     }
 	
 	@RequestMapping("/add-employee")
-    public ModelAndView userAdd() {
+    public ModelAndView employeeAdd() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/employee_add.jsp");
         return modelAndView;
     }
 	
 	@PostMapping("/create_employee")
-    public ModelAndView createUser(Employee employee) {
+    public ModelAndView createEmployee(Employee employee) {
 		 System.out.println("fuck");
         ModelAndView modelAndView = new ModelAndView();
         System.out.println("here");
@@ -72,7 +72,7 @@ public class EmployeeController {
     }
 	
 	@RequestMapping("/edit_employee/{id}")
-    public ModelAndView editUser(@PathVariable String id) {
+    public ModelAndView editEmployee(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView();
         String URL = "http://localhost:3000/emp/getEmployeeById/"+ id;
         Object employee = restTemplate.getForObject(URL, Object.class);
@@ -83,7 +83,7 @@ public class EmployeeController {
     }
 	
 	@PostMapping("/edit_employee_form")
-    public ModelAndView editUser(Employee employee) {
+    public ModelAndView editEmployee(Employee employee) {
 //        ModelAndView modelAndView = new ModelAndView();
         System.out.println("ID "+ employee.getEmp_id());
         String URL = "http://localhost:3000/emp/update";
@@ -117,7 +117,7 @@ public class EmployeeController {
     }
 	
 	@PostMapping("/filter_employee")
-    public ModelAndView filterUser(String name) {
+    public ModelAndView filterEmployee(String name) {
         ModelAndView modelAndView = new ModelAndView();
         System.out.println(name);
         String URL = "http://localhost:3000/emp/getEmployeeByName/" + name;
