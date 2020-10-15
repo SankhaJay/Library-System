@@ -36,6 +36,7 @@ public class AdminService {
     }
 
     public Admin updateAdmin(Admin admin) throws Exception {
+    	System.out.println("in update admin service");
         System.out.println(admin.getAdminId());
         Admin admin1 = adminRepository.findById(admin.getAdminId()).orElse(null);
         admin1.setName(admin.getName());
