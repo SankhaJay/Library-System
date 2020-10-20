@@ -3,17 +3,17 @@ package middleware.frontend.LibraryFrontend.entity;
 import java.util.Date;
 
 public class Admin {
-	private int usr_id;
+	private int aId;
 	private String nic;
 	private String name;
 	private String email;
-	private Date dob;
+	private String dob;
 	private String address;
-	public int getUsr_id() {
-		return usr_id;
+	public int getaId() {
+		return aId;
 	}
-	public void setUsr_id(int usr_id) {
-		this.usr_id = usr_id;
+	public void setaId(int usr_id) {
+		this.aId = usr_id;
 	}
 	public String getNic() {
 		return nic;
@@ -33,10 +33,10 @@ public class Admin {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	public String getAddress() {
@@ -47,10 +47,10 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [usr_id=" + usr_id + ", nic=" + nic + ", name=" + name + ", email=" + email + ", dob=" + dob
+		return "Admin [usr_id=" + aId + ", nic=" + nic + ", name=" + name + ", email=" + email + ", dob=" + dob
 				+ ", address=" + address + "]";
 	}
-	public Admin(String nic, String name, String email, Date dob, String address) {
+	public Admin(String nic, String name, String email, String dob, String address) {
 		super();
 //		this.usr_id = usr_id;
 		this.nic = nic;

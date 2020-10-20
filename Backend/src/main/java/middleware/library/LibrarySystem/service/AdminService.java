@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import middleware.library.LibrarySystem.entity.Admin;
+import middleware.library.LibrarySystem.entity.Administrator;
 import middleware.library.LibrarySystem.repository.AdminRepository;
 
 @Service
@@ -13,20 +13,20 @@ public class AdminService {
 	@Autowired
     private AdminRepository adminRepository;
 
-    public Admin addAdmin(Admin admin) throws Exception {
+    public Administrator addAdmin(Administrator admin) throws Exception {
         System.out.println(admin);
         return adminRepository.save(admin);
     }
 
-    public List<Admin> getAllAdmins() throws Exception {
+    public List<Administrator> getAllAdmins() throws Exception {
         return adminRepository.findAll();
     }
 
-    public Admin getAdminById(int id) throws Exception {
+    public Administrator getAdminById(int id) throws Exception {
         return adminRepository.findById(id).orElse(null);
     }
 
-    public List<Admin> getAdminByName(String name) throws Exception {
+    public List<Administrator> getAdminByName(String name) throws Exception {
         return adminRepository.findByName(name);
     }
 
@@ -35,10 +35,10 @@ public class AdminService {
         return "Admin removed with ID : " + id;
     }
 
-    public Admin updateAdmin(Admin admin) throws Exception {
+    public Administrator updateAdmin(Administrator admin) throws Exception {
     	System.out.println("in update admin service");
-        System.out.println(admin.getAdminId());
-        Admin admin1 = adminRepository.findById(admin.getAdminId()).orElse(null);
+        System.out.println(admin.getaId());
+        Administrator admin1 = adminRepository.findById(admin.getaId()).orElse(null);
         admin1.setName(admin.getName());
         admin1.setAddress(admin.getAddress());
         admin1.setEmail(admin.getEmail());
