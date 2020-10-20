@@ -69,7 +69,7 @@ public class AdminController {
 	
 	@PostMapping("/edit_admin_form")
     public ModelAndView editAdmin(Admin admin) {
-        System.out.println("ID "+ admin.getUsr_id());
+        System.out.println("ID "+ admin.getaId());
         String URL = "http://localhost:3000/admin/update";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

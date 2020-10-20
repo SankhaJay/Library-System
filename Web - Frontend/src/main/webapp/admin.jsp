@@ -25,7 +25,7 @@
           <a class="nav-link" href="/user"> User </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/book"> Books </a>
+          <a class="nav-link" href="#"> Books </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/admin"> Admin </a>
@@ -39,11 +39,11 @@
 
   <div class="row marginStyle">
      <div class="col-md-5">
-         <form action="/filter_employee" method="post">
+         <form action="/filter_admin" method="post">
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search Employee Here" name="name">
+                        <input type="text" class="form-control" placeholder="Search Admin Here" name="name">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -53,7 +53,7 @@
          </form>
      </div>
      <div class="col-md-4">
-        <a href="/add-employee" class="btn btn-info"> ADD NEW EMPLOYEE </a>
+        <a href="/add-admin" class="btn btn-info"> ADD NEW ADMIN </a>
      </div>
   </div>
 
@@ -62,24 +62,25 @@
       <tr id="tr_data">
         <th scope="col"> ID </th>
         <th scope="col"> Name </th>
-        <!--<th scope="col"> DOB </th> -->
-        <th scope="col"> AGE </th>
+        <th scope="col"> DOB </th>
         <th scope="col"> Address </th>
-        <th scope="col"> Salary </th>
+        <th scope="col"> email </th>
+        <th scope="col"> NIC </th>
         <th scope="col">  </th>
         <th scope="col">  </th>
       </tr>
     </thead>
     <tbody>
-      <c:forEach items="${employees}" var="employee">
+      <c:forEach items="${admins}" var="admin">
       <tr>
-        <th scope="row">${employee.emp_id}</th>
-        <td>${employee.name}</td>
-        <td>${employee.age}</td>
-        <td>${employee.address}</td>
-        <td>${employee.salary}</td>
-        <td><a href="/edit_employee/${employee.emp_id}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
-        <td><a href="/deleteEmployee/${employee.emp_id}" style="color:red;text-decoration:none">Delete</button></td>
+        <th scope="row">${admin.aId}</th>
+        <td>${admin.name}</td>
+        <td>${admin.dob}</td>
+        <td>${admin.address}</td>
+        <td>${admin.email}</td>
+        <td>${admin.nic}</td>
+        <td><a href="/edit_admin/${admin.aId}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
+        <td><a href="/deleteAdmin/${admin.aId}" style="color:red;text-decoration:none">Delete</button></td>
       </tr>
       </c:forEach>
     </tbody>
