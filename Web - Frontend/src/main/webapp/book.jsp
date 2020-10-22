@@ -19,19 +19,19 @@
           <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Employee </a>
+          <a class="nav-link" href="/employee"> Employee </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> User </a>
+          <a class="nav-link" href="/user"> User </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Books </a>
+          <a class="nav-link" href="/book"> Books </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Admin </a>
+          <a class="nav-link" href="/admin"> Admin </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Log Out </a>
+          <a class="nav-link" href="/"> Log Out </a>
         </li>
       </ul>
     </div>
@@ -43,7 +43,7 @@
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search User Here" name="name">
+                        <input type="text" class="form-control" placeholder="Search Book Here" name="title">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -53,7 +53,7 @@
          </form>
      </div>
      <div class="col-md-4">
-        <a href="/add-book" class="btn btn-info"> ADD NEW USER </a>
+        <a href="/add-book" class="btn btn-info"> ADD NEW BOOK </a>
      </div>
   </div>
 

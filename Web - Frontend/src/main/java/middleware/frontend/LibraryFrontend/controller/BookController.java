@@ -24,7 +24,7 @@ public class BookController {
 	private RestTemplate restTemplate;
 	
 	 @RequestMapping("/book")
-	    public ModelAndView userHome() {
+	    public ModelAndView bookHome() {
 	        ModelAndView modelAndView = new ModelAndView();
 	        String URL = "http://localhost:3000/book/getAll";
 	        Object[] books = restTemplate.getForObject(URL, Object[].class);
@@ -34,14 +34,14 @@ public class BookController {
 	    }
 	 
 	 @RequestMapping("/add-book")
-	    public ModelAndView userAdd() {
+	    public ModelAndView bookAdd() {
 	        ModelAndView modelAndView = new ModelAndView();
 	        modelAndView.setViewName("/book_add.jsp");
 	        return modelAndView;
 	    }
 	 
 	    @PostMapping("/create_book")
-	    public ModelAndView createUser(Book book) {
+	    public ModelAndView createBook(Book book) {
 	        ModelAndView modelAndView = new ModelAndView();
 	        System.out.println(book.getTitle());
 	        String URL = "http://localhost:3000/book/addBook";
@@ -54,7 +54,7 @@ public class BookController {
 	    }
 	    
 	    @RequestMapping("/edit_book/{isbn}")
-	    public ModelAndView editUser(@PathVariable int isbn) {
+	    public ModelAndView editBook(@PathVariable int isbn) {
 	        ModelAndView modelAndView = new ModelAndView();
 	        String URL = "http://localhost:3000/book/getById/"+ isbn;
 	        Object book = restTemplate.getForObject(URL, Object.class);
@@ -65,7 +65,7 @@ public class BookController {
 	    }
 	    
 	    @PostMapping("/edit_book_form")
-	    public RedirectView editUser(Book book) {
+	    public RedirectView editBook(Book book) {
 	        ModelAndView modelAndView = new ModelAndView();
 	        System.out.println("ID "+ book.getISBN());
 	        String URL = "http://localhost:3000/book/update";
@@ -80,10 +80,10 @@ public class BookController {
 	    }
 	    
 	    @PostMapping("/filter_book")
-	    public ModelAndView filterUser(Book book) {
+	    public ModelAndView filter_book(Book book) {
 	        ModelAndView modelAndView = new ModelAndView();
 	        System.out.println(book.getTitle());
-	        String URL = "http://localhost:3000/user/getUserByName/" + book.getTitle();
+	        String URL = "http://localhost:3000/book/getByTitle/" + book.getTitle();
 	        Object[] books = restTemplate.getForObject(URL, Object[].class);
 	        modelAndView.addObject("books", books);
 	        modelAndView.setViewName("/book.jsp");
@@ -92,7 +92,7 @@ public class BookController {
 
 	    
 	    @DeleteMapping("/deleteBook/{id}")
-	    public RedirectView deleteUser(@PathVariable int id) {
+	    public RedirectView deleteBook(@PathVariable int id) {
 	        System.out.println(id);
 	        ModelAndView modelAndView = new ModelAndView();
 	        String URL = "http://localhost:3000/book/delete/" + id;
