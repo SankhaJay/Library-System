@@ -6,9 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import middleware.library.LibrarySystem.entity.Book;
 
+import java.util.List;
+
 
 public interface BookRepository extends JpaRepository<Book,Integer> {
 
-	Book getByTitle(String title);
+	List<Book> getByTitle(String title);
 
 }
