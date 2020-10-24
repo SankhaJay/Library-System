@@ -46,6 +46,7 @@ public class EmployeeController {
         mv.addObject("employees", employees);
         mv.setViewName("/employee.jsp");
         return mv;
+        //ok
     }
 	
 	@RequestMapping("/add-employee")
@@ -53,6 +54,7 @@ public class EmployeeController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/employee_add.jsp");
         return modelAndView;
+        //ok
     }
 	
 	@PostMapping("/create_employee")
@@ -68,6 +70,7 @@ public class EmployeeController {
 //        modelAndView.setViewName("/employee.jsp");
 //        return modelAndView;
         return home();
+        //ok
     }
 	
 	@RequestMapping("/edit_employee/{id}")
@@ -79,13 +82,16 @@ public class EmployeeController {
         modelAndView.addObject("employee", employee);
         modelAndView.setViewName("/edit_employee.jsp");
         return modelAndView;
+        //ok
     }
 	
 	@PostMapping("/edit_employee_form")
     public ModelAndView editEmployee(Employee employee) {
 //        ModelAndView modelAndView = new ModelAndView();
+    	System.out.println("--------------------------------Front End");
         System.out.println("ID "+ employee.getEmp_id());
         String URL = "http://localhost:3000/emp/update";
+        
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> request = new HttpEntity<Object>(employee, headers);
@@ -95,6 +101,7 @@ public class EmployeeController {
 //        redirectView.setUrl("http://localhost:9090/user");
 //        return redirectView;
         return home();
+        //ok
     }
 	
 	@RequestMapping("/deleteEmployee/{id}")

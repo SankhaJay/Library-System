@@ -14,7 +14,7 @@ public class Book {
 	
 	public Book() {};
 	
-	public Book(int iSBN, String title, String publisher, int numberOfBooks, int price) {
+	public Book(int iSBN, String title, String publisher, int number_of_books, int price) {
         super();
         this.ISBN=iSBN;
         this.title=title;
@@ -25,7 +25,7 @@ public class Book {
     }
 	 @Override
 	    public String toString() {
-	        return "Book [ISBN=" + ISBN + ", title=" + title + ", publisher=" + publisher + ", numberOfBooks=" + numberOfBooks + ", price="
+	        return "Book [ISBN=" + ISBN + ", title=" + title + ", publisher=" + publisher + ", number_of_books=" + numberOfBooks + ", price="
 	                + price + "]";
 	    }
 	 
