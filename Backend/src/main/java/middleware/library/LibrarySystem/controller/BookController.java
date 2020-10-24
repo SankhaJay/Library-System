@@ -54,6 +54,8 @@ public class BookController {
 	
 	@PutMapping("/update")
 	public Book updateBook(@RequestBody Book book){
+		System.out.println("------------------------------");
+		System.out.println(book);
 		return service.updateBook(book);
 	}
 	

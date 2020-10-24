@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
   <head>
-    <title> Book Page </title>
+    <title> Employee Page </title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/user.css">
@@ -40,24 +40,24 @@
 
   <div class="row marginStyle">
      <div class="col-md-12">
-        <form action="/create_book" method="post">
+        <form action="/create_employee" method="post">
            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control" name="title" placeholder="Enter Titile">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter Name">
+           </div>
+          
+           <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" placeholder="Enter Address">
            </div>
            <div class="form-group">
-              <label for="publisher">Publisher</label>
-              <input type="text" class="form-control" name="publisher" placeholder="Enter Publisher">
-           </div>
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" name="salary" placeholder="Enter Salary">
+         </div>
            <div class="form-group">
-              <label for="number_of_books">Number Of Books</label>
-              <input type="number" class="form-control" name="numberOfBooks" placeholder="Enter Number Of Books">
+               <label for="age">Age</label>
+               <input type="text" class="form-control" name="age" placeholder="Enter Age">
            </div>
-           <div class="form-group">
-              <label for="price">Price</label>
-              <input type="number" class="form-control" name="price" placeholder="Enter Price">
-           </div>
-           
            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
      </div>
@@ -68,3 +68,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
+

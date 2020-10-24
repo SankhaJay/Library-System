@@ -1,15 +1,13 @@
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html>
   <head>
-    <title> Book Page </title>
-    <meta charset="UTF-8">
+    <title> Employee Page </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/user.css">
   </head>
   <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> Library-System </a>
+    <a class="navbar-brand" href="#"> Library </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,26 +36,31 @@
     </div>
   </nav>
 
-  <div class="row marginStyle">
+  <div class="row" style="margin: 20px 20px 20px 20px;">
      <div class="col-md-12">
-        <form action="/create_book" method="post">
+        <form action="http://localhost:9090/edit_user_form" method="post">
+           <input type="text" class="form-control" name="usr_id" value="${user.usr_id}" style="display:none">
            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control" name="title" placeholder="Enter Titile">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" value="${user.name}">
            </div>
            <div class="form-group">
-              <label for="publisher">Publisher</label>
-              <input type="text" class="form-control" name="publisher" placeholder="Enter Publisher">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" value="${user.email}" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
            </div>
            <div class="form-group">
-              <label for="number_of_books">Number Of Books</label>
-              <input type="number" class="form-control" name="numberOfBooks" placeholder="Enter Number Of Books">
+              <label for="nic">NIC</label>
+              <input type="text" disabled class="form-control" name="nic" value="${user.nic}" placeholder="Enter NIC">
            </div>
            <div class="form-group">
-              <label for="price">Price</label>
-              <input type="number" class="form-control" name="price" placeholder="Enter Price">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" value="${user.address}" placeholder="Enter Address">
            </div>
-           
+           <div class="form-group">
+               <label for="dob">Date of Birth</label>
+               <input type="date" class="form-control" name="dob" value="${user.dob}" placeholder="Enter DOB">
+           </div>
            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
      </div>
