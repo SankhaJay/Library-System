@@ -1,11 +1,13 @@
 package middleware.frontend.LibraryFrontend.controller;
 
-
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,59 +26,81 @@ public class BookController {
 	private RestTemplate restTemplate;
 	
 	 @RequestMapping("/book")
-	    public ModelAndView userHome() {
+	    public ModelAndView home() {
 	        ModelAndView modelAndView = new ModelAndView();
 	        String URL = "http://localhost:3000/book/getAll";
 	        Object[] books = restTemplate.getForObject(URL, Object[].class);
+	        
+	        Arrays.asList(books);
 	        modelAndView.addObject("books", books);
 	        modelAndView.setViewName("/book.jsp");
 	        return modelAndView;
+	        
+	        //ok
 	    }
 	 
 	 @RequestMapping("/add-book")
-	    public ModelAndView userAdd() {
+	    public ModelAndView bookAdd() {
 	        ModelAndView modelAndView = new ModelAndView();
 	        modelAndView.setViewName("/book_add.jsp");
 	        return modelAndView;
+	        //ok
 	    }
 	 
 	    @PostMapping("/create_book")
-	    public ModelAndView createUser(Book book) {
-	        ModelAndView modelAndView = new ModelAndView();
-	        System.out.println(book.getTitle());
+	    public ModelAndView createBook(Book book) {
+	      //  ModelAndView modelAndView = new ModelAndView();
+	        System.out.println("create book.............");
+	        System.out.println(book);
 	        String URL = "http://localhost:3000/book/addBook";
 	        HttpHeaders headers = new HttpHeaders();
 	        HttpEntity<Object> request = new HttpEntity<Object>(book, headers);
+	        
 	        headers.setContentType(MediaType.APPLICATION_JSON);
 	        restTemplate.postForObject(URL, request, Object.class);
-	        modelAndView.setViewName("/book_add.jsp");
-	        return modelAndView;
+	        
+//	        modelAndView.setViewName("/book_add.jsp");
+//	        return modelAndView;
+	        return home();
+	        //ok
 	    }
 	    
 	    @RequestMapping("/edit_book/{isbn}")
-	    public ModelAndView editUser(@PathVariable int isbn) {
+	    public ModelAndView editBook(@PathVariable String isbn) {
+	    	
+	    	
 	        ModelAndView modelAndView = new ModelAndView();
 	        String URL = "http://localhost:3000/book/getById/"+ isbn;
 	        Object book = restTemplate.getForObject(URL, Object.class);
+	        System.out.println("editBookisbn----");
 	        System.out.println(book);
 	        modelAndView.addObject("book", book);
 	        modelAndView.setViewName("/edit_book.jsp");
 	        return modelAndView;
+	        //ok
+	        
+	      
 	    }
 	    
-	    @PostMapping("/edit_book_form")
-	    public RedirectView editUser(Book book) {
-	        ModelAndView modelAndView = new ModelAndView();
-	        System.out.println("ID "+ book.getISBN());
+	    @PostMapping("/edit_book_form/{isbn}")
+	    public ModelAndView editBook(Book book,@PathVariable Integer isbn) {
+	      //  ModelAndView modelAndView = new ModelAndView();
+	        
+	    	System.out.println("--------------------------------Front End");
+	        System.out.println("ID "+ book);
+	        book.setISBN(isbn);
+	        
 	        String URL = "http://localhost:3000/book/update";
 	        HttpHeaders headers = new HttpHeaders();
 	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        
 	        HttpEntity<Object> request = new HttpEntity<Object>(book, headers);
 	        restTemplate.put(URL, request, Object.class);
-	        modelAndView.setViewName("/edit_book.jsp");
-	        RedirectView redirectView = new RedirectView();
-	        redirectView.setUrl("http://localhost:9090/book");
-	        return redirectView;
+//	        modelAndView.setViewName("/edit_book.jsp");
+//	        RedirectView redirectView = new RedirectView();
+//	        redirectView.setUrl("http://localhost:9090/book");
+	        return home();
+	        //ok
 	    }
 	    
 	    @PostMapping("/filter_book")
@@ -89,24 +113,46 @@ public class BookController {
 	        modelAndView.setViewName("/book.jsp");
 	        return modelAndView;
 	    }
-
-	    
-	    @DeleteMapping("/deleteBook/{id}")
-	    public RedirectView deleteUser(@PathVariable int id) {
-	        System.out.println(id);
+	    	    
+		@RequestMapping("/delete_book/{isbn}")
+	    public RedirectView deleteBook(@PathVariable Integer isbn) {
+	        System.out.println("Delete isbn..............");
+	        System.out.println(isbn);
 	        ModelAndView modelAndView = new ModelAndView();
-	        String URL = "http://localhost:3000/book/delete/" + id;
+	        String URL = "http://localhost:3000/book/delete/" + isbn;
 	        try {
 	            restTemplate.delete(URL);
 	        } catch (Exception exception) {
 	            exception.getMessage();
-	        } finally {
-	            String books_URL = "http://localhost:3000/book/getAll";
-	            Object[] books = restTemplate.getForObject(books_URL, Object[].class);
+	        } 
+	        
+	        finally {
+	            String emp_URL = "http://localhost:3000/book/getAll";
+	            Object[] users = restTemplate.getForObject(emp_URL, Object[].class);
 	            RedirectView redirectView = new RedirectView();
 	            redirectView.setUrl("http://localhost:9090/book");
 	            return redirectView;
 	        }
 	    }
+		
+
+	    
+//	    @DeleteMapping("/deleteBook/{id}")
+//	    public RedirectView deleteUser(@PathVariable int id) {
+//	        System.out.println(id);
+//	        ModelAndView modelAndView = new ModelAndView();
+//	        String URL = "http://localhost:3000/book/delete/" + id;
+//	        try {
+//	            restTemplate.delete(URL);
+//	        } catch (Exception exception) {
+//	            exception.getMessage();
+//	        } finally {
+//	            String books_URL = "http://localhost:3000/book/getAll";
+//	            Object[] books = restTemplate.getForObject(books_URL, Object[].class);
+//	            RedirectView redirectView = new RedirectView();
+//	            redirectView.setUrl("http://localhost:9090/book");
+//	            return redirectView;
+//	        }
+//	    }
 	
 }
