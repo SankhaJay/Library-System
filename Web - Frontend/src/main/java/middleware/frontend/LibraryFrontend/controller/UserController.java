@@ -44,7 +44,7 @@ public class UserController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         restTemplate.postForObject(URL, request, Object.class);
         modelAndView.setViewName("/user_add.jsp");
-        return modelAndView;
+        return userHome();
     }
 
     @RequestMapping("/edit_user/{id}")
@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping("/edit_user_form")
-    public RedirectView editUser(User user) {
+    public ModelAndView editUser(User user) {
         ModelAndView modelAndView = new ModelAndView();
         System.out.println("ID "+ user.getUsr_id());
         String URL = "http://localhost:3000/user/update";
@@ -67,10 +67,10 @@ public class UserController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Object> request = new HttpEntity<Object>(user, headers);
         restTemplate.put(URL, request, Object.class);
-        modelAndView.setViewName("/edit_user.jsp");
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("http://localhost:9090/user");
-        return redirectView;
+//        modelAndView.setViewName("/edit_user.jsp");
+//        RedirectView redirectView = new RedirectView();
+//        redirectView.setUrl("http://localhost:9090/user");
+        return userHome();
     }
 
     @PostMapping("/filter_user")
