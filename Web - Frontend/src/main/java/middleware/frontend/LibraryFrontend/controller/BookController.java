@@ -104,10 +104,10 @@ public class BookController {
 	    }
 	    
 	    @PostMapping("/filter_book")
-	    public ModelAndView filterUser(Book book) {
+	    public ModelAndView filter_book(Book book) {
 	        ModelAndView modelAndView = new ModelAndView();
 	        System.out.println(book.getTitle());
-	        String URL = "http://localhost:3000/user/getUserByName/" + book.getTitle();
+	        String URL = "http://localhost:3000/book/getByTitle/" + book.getTitle();
 	        Object[] books = restTemplate.getForObject(URL, Object[].class);
 	        modelAndView.addObject("books", books);
 	        modelAndView.setViewName("/book.jsp");

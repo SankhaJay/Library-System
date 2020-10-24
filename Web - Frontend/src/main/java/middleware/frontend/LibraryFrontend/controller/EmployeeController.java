@@ -59,7 +59,6 @@ public class EmployeeController {
 	
 	@PostMapping("/create_employee")
     public ModelAndView createEmployee(Employee employee) {
-		 System.out.println("fuck");
         ModelAndView modelAndView = new ModelAndView();
         System.out.println("here");
         String URL = "http://localhost:3000/emp/addEmployee";

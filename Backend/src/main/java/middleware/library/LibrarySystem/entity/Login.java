@@ -1,15 +1,15 @@
 package middleware.library.LibrarySystem.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "login")
 public class Login {
 	
 	@Id
+	@Column(length = 25)
 	private String username;
+	@Column(length = 25)
 	private String password;
 	
 	public Login() {}
@@ -32,7 +32,5 @@ public class Login {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
 }

@@ -31,7 +31,7 @@
           <a class="nav-link" href="/admin"> Admin </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Log Out </a>
+          <a class="nav-link" href="/"> Log Out </a>
         </li>
       </ul>
     </div>
