@@ -84,7 +84,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @RequestMapping("/delete/{id}")
     public RedirectView deleteUser(@PathVariable String id) {
         System.out.println(id);
         ModelAndView modelAndView = new ModelAndView();

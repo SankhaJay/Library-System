@@ -80,7 +80,7 @@
         <td>${user.address}</td>
         <td>${user.email}</td>
         <td><a href="/edit_user/${user.usr_id}" style="color:blue;text-decoration:none;cursor:pointer">Edit</a></td>
-        <td><a href="javascript:void(0)" onclick="deleteUser('${user.usr_id}')" style="color:red;text-decoration:none">Delete</button></td>
+        <td><a href="/delete/${user.usr_id}" style="color:red;text-decoration:none">Delete</a></td>
       </tr>
       </c:forEach>
     </tbody>
@@ -89,18 +89,5 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-      function deleteUser(id) {
-          alert(id)
-          var URL = "/delete/" + id;
-          $.ajax({
-              type: "delete",
-              url: URL,
-              success: function(msg){
-                  alert("Successfully Deleted");
-              }
-          });
-      }
-   </script>
   </body>
 </html>
