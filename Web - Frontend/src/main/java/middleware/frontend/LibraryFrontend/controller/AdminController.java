@@ -9,6 +9,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -121,28 +122,17 @@ public class AdminController {
 	        String URL = "http://localhost:3000/emp/employees";
 			Object[] employees = restTemplate.getForObject(URL, Object[].class);
 			Arrays.asList(employees);
-//	        mv.addObject("employees", employees);
-//	        mv.setViewName("/employee.jsp");
-//	        return returnToHome();
+	        mv.addObject("employees", employees);
+	        mv.setViewName("/employee.jsp");
+	        return mv;
 		}
 		ModelAndView mv = new ModelAndView();
         String URL = "http://localhost:3000/emp/employees";
 		Object[] employees = restTemplate.getForObject(URL, Object[].class);
 		Arrays.asList(employees);
-//        mv.addObject("employees", employees);
-//        mv.setViewName("/employee.jsp");
-        return returnToHome();
-    }
-
-    @RequestMapping("/home")
-    public ModelAndView returnToHome(){
-        ModelAndView mv = new ModelAndView();
-        String URL = "http://localhost:3000/admin/admins";
-        Object[] admins = restTemplate.getForObject(URL, Object[].class);
-
-        Arrays.asList(admins);
-        mv.addObject("admins", admins);
-        mv.setViewName("/admin.jsp");
+        mv.addObject("employees", employees);
+        mv.setViewName("/employee.jsp");
         return mv;
     }
+
 }
